@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using StudioWeb.Models;
 
 namespace StudioWeb.Controllers
 {
@@ -25,6 +26,28 @@ namespace StudioWeb.Controllers
                 
                 // return to client
                 return Ok(_list);
+            }
+        }
+
+
+        [HttpGet]
+        [Route("insert")]
+        public IHttpActionResult InsertMethod()
+        {
+            using (var context = new StudioWebContext())
+            {
+                var u = new User()
+                {                    
+                    Nome = "Pasquale Esposito",
+                    IsActive = true,
+                    CreationDate = DateTime.Now
+                };
+
+                context.Users.Add(u);
+                context.SaveChanges();
+
+                // return to client
+                return Ok(u);
             }
         }
     }

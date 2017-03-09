@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
@@ -26,6 +27,9 @@ namespace StudioWeb
             // se la tabella ha nome diverso dall'entità (Users e user) devo esplicitare il mapping
             modelBuilder.Entity<User>().ToTable("Users").HasKey(x => x.Id);
 
+            // se voglio evitare l'identity
+            //modelBuilder.Entity<User>().Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            
             // Database does not pluralize table names
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
