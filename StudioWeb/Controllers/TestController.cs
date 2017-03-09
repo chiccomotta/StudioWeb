@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using StudioWeb.Logic;
 using StudioWeb.Models;
 
 namespace StudioWeb.Controllers
@@ -34,6 +36,14 @@ namespace StudioWeb.Controllers
         [Route("insert")]
         public IHttpActionResult InsertMethod()
         {
+            // Uso il reporitory
+            var repo = new UsersRepository();
+
+            foreach (var u in repo.List)
+            {
+                Debug.WriteLine(u.Nome);
+            }
+
             using (var context = new StudioWebContext())
             {
                 var u = new User()
