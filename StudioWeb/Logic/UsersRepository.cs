@@ -8,13 +8,14 @@ namespace StudioWeb.Logic
 {
     public class UsersRepository : IRepository<User>
     {
+        // DbContext
         private readonly StudioWebContext _context;
 
         public UsersRepository()
         {
             _context = new StudioWebContext();
-
         }
+
         public IEnumerable<User> List => _context.Users;
 
         public void Add(User entity)
@@ -33,7 +34,6 @@ namespace StudioWeb.Logic
         {
             _context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
-
         }
 
         public User FindById(int id)
