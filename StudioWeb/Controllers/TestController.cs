@@ -23,6 +23,7 @@ namespace StudioWeb.Controllers
                     _list.Add(e.CreationDate.Value.ToShortDateString());                    
                 }
                 
+                // return to client
                 return Ok(_list);
             }
         }
