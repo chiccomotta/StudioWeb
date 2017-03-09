@@ -20,7 +20,7 @@ namespace StudioWeb.Controllers
                 List<string> _list = new List<string>();
                 foreach (var e in context.Users.ToList())
                 {
-                    _list.Add(e.CreationDate.Value.ToShortDateString());                    
+                    _list.Add(e.CreationDate.Value.ToLongTimeString());                    
                 }
                 
                 // return to client

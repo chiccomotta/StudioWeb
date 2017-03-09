@@ -19,10 +19,7 @@ namespace StudioWeb
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-            
-
-            // TEST COMMIT
-
+                        
             // Rimuovo il formattatore XML
             config.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
 
