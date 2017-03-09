@@ -21,6 +21,8 @@ namespace StudioWeb
             );
             
 
+            // TEST COMMIT
+
             // Rimuovo il formattatore XML
             config.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
 
