@@ -69,9 +69,7 @@ namespace StudioWeb.Controllers
             repo.Add(u);
                 
             return Ok(JsonConvert.SerializeObject(u));
-
-
-
+            
 
             // lo salvo su DB
             //var progetti = new ProgettiRepository();
