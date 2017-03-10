@@ -15,6 +15,6 @@ namespace StudioWeb.Models
         public DateTime? CreationDate { get; set; }
 
         [JsonIgnore]
-        public virtual List<Progetto> Progetti { get; set; }
+        public virtual ICollection<Progetto> Progetti { get; set; }
     }
 }
