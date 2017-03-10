@@ -10,6 +10,6 @@ namespace StudioWeb.Models
         public int Id { get; set; }
         public string ProjectName { get; set; }
         public string ProjectType { get; set; }
-        public int durationDays { get; set; }
+        public int DurationDays { get; set; }
     }
 }

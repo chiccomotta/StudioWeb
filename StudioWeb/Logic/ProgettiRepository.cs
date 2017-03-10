@@ -20,22 +20,26 @@ namespace StudioWeb.Logic
 
         public void Add(Progetto entity)
         {
-            throw new NotImplementedException();
+            _context.Progetti.Add(entity);
+            _context.SaveChanges();
         }
 
         public void Delete(Progetto entity)
         {
-            throw new NotImplementedException();
+            _context.Progetti.Remove(entity);
+            _context.SaveChanges();
         }
 
         public Progetto FindById(int id)
         {
-            throw new NotImplementedException();
+            var result = (from r in _context.Progetti where r.Id == id select r).FirstOrDefault();
+            return result;
         }
 
         public void Update(Progetto entity)
         {
-            throw new NotImplementedException();
+            _context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            _context.SaveChanges();
         }
     }
 }
