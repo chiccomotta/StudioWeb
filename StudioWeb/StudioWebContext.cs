@@ -22,9 +22,10 @@ namespace StudioWeb
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // se la tabella ha nome diverso dall'entità (Users e user) devo esplicitare il mapping
+            // se la tabella ha nome diverso dall'entità (Users e User) devo esplicitare il mapping.
+            // (In caso di chiave composta utilizzare un oggetto anonimo, es: (x => new {x.id, x.Nome})
             modelBuilder.Entity<User>().ToTable("Users").HasKey(x => x.Id);
-
+            
             // se voglio evitare l'identity (sulla colonna)
             //modelBuilder.Entity<User>().Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             

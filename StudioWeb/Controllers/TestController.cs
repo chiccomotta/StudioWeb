@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Newtonsoft.Json;
 using StudioWeb.Logic;
 using StudioWeb.Models;
 
@@ -18,6 +19,12 @@ namespace StudioWeb.Controllers
         [Route("Prova")]
         public IHttpActionResult Method1()
         {
+
+            var d = DateTime.Now;
+            var t = JsonConvert.SerializeObject(d);
+
+            Debug.WriteLine(t);
+
             using (var context = new StudioWebContext())
             {
                 List<string> _list = new List<string>();
