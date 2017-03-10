@@ -12,6 +12,7 @@ namespace StudioWeb.Models
         public string ProjectType { get; set; }
         public int? DurationDays { get; set; }
 
+        // Navigation property
         public virtual User Utente { get; set; }
     }
 }
