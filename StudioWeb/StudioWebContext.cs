@@ -18,16 +18,14 @@ namespace StudioWeb
             Database.SetInitializer<StudioWebContext>(null);
         }
 
-
         public DbSet<User> Users { get; set; }
-
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             // se la tabella ha nome diverso dall'entità (Users e user) devo esplicitare il mapping
             modelBuilder.Entity<User>().ToTable("Users").HasKey(x => x.Id);
 
-            // se voglio evitare l'identity
+            // se voglio evitare l'identity (sulla colonna)
             //modelBuilder.Entity<User>().Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             
             // Database does not pluralize table names

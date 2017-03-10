@@ -36,9 +36,9 @@ namespace StudioWeb.Logic
             _context.SaveChanges();
         }
 
-        public User FindById(int id)
+        public User FindById(int Id)
         {
-            var result = (from r in _context.Users where r.Id == id select r).FirstOrDefault();
+            var result = (from r in _context.Users where r.Id == Id select r).FirstOrDefault();
             return result;
         }        
     }
