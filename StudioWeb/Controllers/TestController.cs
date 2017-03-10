@@ -19,6 +19,7 @@ namespace StudioWeb.Controllers
         [Route("Prova")]
         public IHttpActionResult Method1()
         {
+            // Json.net example
             var d = DateTime.Now;
             var t = JsonConvert.SerializeObject(d);
             Debug.WriteLine(t);
@@ -41,6 +42,18 @@ namespace StudioWeb.Controllers
         [Route("insert")]
         public IHttpActionResult InsertMethod()
         {
+            // creo un progetto nuovo
+            var pro = new Progetto()
+            {
+                ProjectName = "StudioWeb",
+                ProjectType = "Web Site",
+                DurationDays = 30
+            };
+
+            // lo salvo su DB
+            var progetti = new ProgettiRepository();
+            progetti.Add(pro);
+            
             // Uso il reporitory
             var repo = new UsersRepository();
 
