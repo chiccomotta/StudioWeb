@@ -106,9 +106,9 @@ namespace StudioWeb.Controllers
 
             var pro = new Progetto()
             {
-                ProjectName = "Pippo",
-                ProjectType = "Boh",
-                DurationDays = 20,
+                ProjectName = "progetto Numero tre",
+                ProjectType = "Spatial application game",
+                DurationDays = 100,
             };
 
             chicco.Progetti.Add(pro);
