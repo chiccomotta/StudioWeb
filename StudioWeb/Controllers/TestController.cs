@@ -66,35 +66,6 @@ namespace StudioWeb.Controllers
             repo.Add(u);
 
             return Ok(JsonConvert.SerializeObject(u));
-
-
-            // lo salvo su DB
-            //var progetti = new ProgettiRepository();
-            //progetti.Add(pro);
-
-            // Uso il reporitory
-            //var repo = new UsersRepository();
-
-            //foreach (var u in repo.List)
-            //{
-            //    Debug.WriteLine(u.Nome);
-            //}
-
-            //using (var context = new StudioWebContext())
-            //{
-            //    var u = new User()
-            //    {                    
-            //        Nome = "Pasquale Esposito",
-            //        IsActive = true,
-            //        CreationDate = DateTime.Now
-            //    };
-
-            //    context.Users.Add(u);
-            //    context.SaveChanges();
-
-            //    // return to client
-            //    return Ok(u);
-            //}
         }
 
         [HttpGet]
