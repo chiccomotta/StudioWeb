@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace StudioWeb.Models
 {
@@ -11,5 +13,8 @@ namespace StudioWeb.Models
         public string Nome { get; set; }
         public bool? IsActive { get; set; }
         public DateTime? CreationDate { get; set; }
+
+        [JsonIgnore]
+        public virtual List<Progetto> Progetti { get; set; }
     }
 }

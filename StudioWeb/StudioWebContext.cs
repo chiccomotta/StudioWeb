@@ -33,6 +33,9 @@ namespace StudioWeb
 
             modelBuilder.Entity<Progetto>().ToTable("Progetti").HasKey(x => x.Id);
 
+            // Come configurare la chiave esterna per le navigation properties
+            modelBuilder.Entity<User>().HasMany(x => x.Progetti).WithRequired(x => x.Utente).Map(x => x.MapKey("UserId"));
+
             // se voglio evitare l'identity (sulla colonna)
             //modelBuilder.Entity<User>().Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
         }

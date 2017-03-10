@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using Newtonsoft.Json;
 using StudioWeb.Logic;
@@ -43,40 +40,66 @@ namespace StudioWeb.Controllers
         public IHttpActionResult InsertMethod()
         {
             // creo un progetto nuovo
-            var pro = new Progetto()
+            var pro1 = new Progetto()
             {
                 ProjectName = "StudioWeb",
                 ProjectType = "Web Site",
                 DurationDays = 30
             };
 
-            // lo salvo su DB
-            var progetti = new ProgettiRepository();
-            progetti.Add(pro);
-            
-            // Uso il reporitory
+            var pro2 = new Progetto()
+            {
+                ProjectName = "ConsoleOne",
+                ProjectType = "Console",
+                DurationDays = 15
+            };
+
+            var u = new User()
+            {
+                Nome = "Cristiano Motta",
+                IsActive = true,
+                CreationDate = DateTime.Now,
+                Progetti = new List<Progetto>()
+            };
+
+            u.Progetti.Add(pro1);
+            u.Progetti.Add(pro2);
+
             var repo = new UsersRepository();
+            repo.Add(u);
+                
+            return Ok(JsonConvert.SerializeObject(u));
 
-            foreach (var u in repo.List)
-            {
-                Debug.WriteLine(u.Nome);
-            }
 
-            using (var context = new StudioWebContext())
-            {
-                var u = new User()
-                {                    
-                    Nome = "Pasquale Esposito",
-                    IsActive = true,
-                    CreationDate = DateTime.Now
-                };
 
-                context.Users.Add(u);
-                context.SaveChanges();
 
-                // return to client
-                return Ok(u);
-            }
+            // lo salvo su DB
+            //var progetti = new ProgettiRepository();
+            //progetti.Add(pro);
+
+            // Uso il reporitory
+            //var repo = new UsersRepository();
+
+            //foreach (var u in repo.List)
+            //{
+            //    Debug.WriteLine(u.Nome);
+            //}
+
+            //using (var context = new StudioWebContext())
+            //{
+            //    var u = new User()
+            //    {                    
+            //        Nome = "Pasquale Esposito",
+            //        IsActive = true,
+            //        CreationDate = DateTime.Now
+            //    };
+
+            //    context.Users.Add(u);
+            //    context.SaveChanges();
+
+            //    // return to client
+            //    return Ok(u);
+            //}
         }
     }
 }
