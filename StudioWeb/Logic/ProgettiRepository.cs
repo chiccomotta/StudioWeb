@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using StudioWeb.Models;
@@ -13,7 +14,7 @@ namespace StudioWeb.Logic
 
         public ProgettiRepository()
         {
-            _context = new StudioWebContext();
+            _context = new StudioWebContext();            
         }
 
         public IEnumerable<Progetto> List => _context.Progetti;

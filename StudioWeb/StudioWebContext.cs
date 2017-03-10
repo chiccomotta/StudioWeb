@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using StudioWeb.Models;
@@ -15,7 +16,7 @@ namespace StudioWeb
         {
             // Turn off the Migrations, (NOT a code first Db)
             // Non tento di creare il DB se non esiste
-            Database.SetInitializer<StudioWebContext>(null);
+            Database.SetInitializer<StudioWebContext>(null);           
         }
 
         public DbSet<User> Users { get; set; }
@@ -33,7 +34,9 @@ namespace StudioWeb
 
             modelBuilder.Entity<Progetto>().ToTable("Progetti").HasKey(x => x.Id);
 
-            // Come configurare la chiave esterna per le navigation properties
+            // Come configurare la chiave esterna per le navigation properties 
+            // (in pratica si legge: un utente può avere molti progetti e i progetti devono avere un utente 
+            // e la chiave esterna è UserId nella tabella progetti)
             modelBuilder.Entity<User>().HasMany(x => x.Progetti).WithRequired(x => x.Utente).Map(x => x.MapKey("UserId"));
 
             // se voglio evitare l'identity (sulla colonna)

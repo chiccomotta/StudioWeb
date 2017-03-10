@@ -1,6 +1,7 @@
 ﻿using StudioWeb.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -14,6 +15,7 @@ namespace StudioWeb.Logic
         public UsersRepository()
         {
             _context = new StudioWebContext();
+            _context.Database.Log = x => Debug.WriteLine(x);
         }
 
         public IEnumerable<User> List => _context.Users;

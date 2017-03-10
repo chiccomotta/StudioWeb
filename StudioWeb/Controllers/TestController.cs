@@ -26,9 +26,9 @@ namespace StudioWeb.Controllers
                 List<string> _list = new List<string>();
                 foreach (var e in context.Users.ToList())
                 {
-                    _list.Add(e.CreationDate.Value.ToLongTimeString());                    
+                    _list.Add(e.CreationDate.Value.ToLongTimeString());
                 }
-                
+
                 // return to client
                 return Ok(_list);
             }
@@ -59,14 +59,14 @@ namespace StudioWeb.Controllers
                 Nome = "Cristiano Motta",
                 IsActive = true,
                 CreationDate = DateTime.Now,
-                Progetti = { pro1, pro2 }
+                Progetti = {pro1, pro2}
             };
 
             var repo = new UsersRepository();
             repo.Add(u);
-                
+
             return Ok(JsonConvert.SerializeObject(u));
-            
+
 
             // lo salvo su DB
             //var progetti = new ProgettiRepository();
@@ -95,6 +95,26 @@ namespace StudioWeb.Controllers
             //    // return to client
             //    return Ok(u);
             //}
+        }
+
+        [HttpGet]
+        [Route("insert2")]
+        public IHttpActionResult Insert2Method()
+        {          
+            var repUsers = new UsersRepository();
+            var chicco = repUsers.FindById(3);
+
+            var pro = new Progetto()
+            {
+                ProjectName = "Pippo",
+                ProjectType = "Boh",
+                DurationDays = 20,
+            };
+
+            chicco.Progetti.Add(pro);
+            repUsers.Update(chicco);
+        
+            return Ok("Ok");
         }
     }
 }
