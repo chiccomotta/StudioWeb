@@ -19,10 +19,8 @@ namespace StudioWeb.Controllers
         [Route("Prova")]
         public IHttpActionResult Method1()
         {
-
             var d = DateTime.Now;
             var t = JsonConvert.SerializeObject(d);
-
             Debug.WriteLine(t);
 
             using (var context = new StudioWebContext())
