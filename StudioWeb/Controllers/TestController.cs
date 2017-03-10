@@ -59,11 +59,8 @@ namespace StudioWeb.Controllers
                 Nome = "Cristiano Motta",
                 IsActive = true,
                 CreationDate = DateTime.Now,
-                Progetti = new List<Progetto>()
+                Progetti = { pro1, pro2 }
             };
-
-            u.Progetti.Add(pro1);
-            u.Progetti.Add(pro2);
 
             var repo = new UsersRepository();
             repo.Add(u);

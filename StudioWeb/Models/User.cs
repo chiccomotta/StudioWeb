@@ -9,6 +9,12 @@ namespace StudioWeb.Models
 {
     public class User
     {
+        public User()
+        {
+            // In the entity we should always initialize the collection properties in the constructor
+            Progetti = new List<Progetto>();
+        }
+
         public int Id { get; set; }
         public string Nome { get; set; }
         public bool? IsActive { get; set; }
