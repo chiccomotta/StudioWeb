@@ -19,6 +19,7 @@ namespace StudioWeb
             Database.SetInitializer<StudioWebContext>(null);           
         }
 
+
         public DbSet<User> Users { get; set; }
         public DbSet<Progetto> Progetti { get; set; }
 
