@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Common;
+using System.Data.Entity.Core.Common.CommandTrees;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
@@ -59,6 +62,70 @@ namespace StudioWeb.Controllers
                 // return to client
                 return Ok(u);
             }
+        }
+
+
+        [HttpGet]
+        [Route("TestContact")]
+        public IHttpActionResult TestContact()
+        {
+            // Chimare la SP e mappare i risultati al returnedDto
+            List<ReturnedDto> list = new List<ReturnedDto>();
+
+            var competences = (from r in list
+                select r.Competence).Distinct();
+
+            var potentials = (from r in list
+                        select r.RelativePotential).Distinct();
+
+            foreach (var comp in competences)
+            {
+                var contact = new ContactDto();
+                contact.Competence = comp;
+
+                foreach (var pot in potentials)
+                {
+                    contact.RelativePotential = pot;
+
+                    var field = (from x in list
+                        where x.Competence == comp && x.RelativePotential == pot
+                              && x.PersonalFidelity == "High"
+                        select x).FirstOrDefault();
+
+                    if (field != null)
+                    {
+                        contact.PersonalFidelityHigh = field.Quantity;
+                        contact.Visited = field.Visited;
+                        contact.TotalCounts = field.TotalCounts;               
+                    }
+
+                    field = (from x in list
+                                 where x.Competence == comp && x.RelativePotential == pot
+                                       && x.PersonalFidelity == "Medium"
+                                 select x).FirstOrDefault();
+
+                    if (field != null)
+                    {
+                        contact.PersonalFidelityMedium = field.Quantity;
+                        contact.Visited = field.Visited;
+                        contact.TotalCounts = field.TotalCounts;
+                    }
+
+                    field = (from x in list
+                             where x.Competence == comp && x.RelativePotential == pot
+                                   && x.PersonalFidelity == "Low"
+                             select x).FirstOrDefault();
+
+                    if (field != null)
+                    {
+                        contact.PersonalFidelityLow = field.Quantity;
+                        contact.Visited = field.Visited;
+                        contact.TotalCounts = field.TotalCounts;
+                    }
+                }
+            }
+            
+            return Ok("ok");
         }
     }
 }
