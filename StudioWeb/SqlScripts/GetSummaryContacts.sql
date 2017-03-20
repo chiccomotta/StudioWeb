@@ -1,4 +1,5 @@
-﻿USE [ASBusinessIntelligence.Dev]
+﻿
+USE [ASBusinessIntelligence.Dev]
 GO
 
 /****** Object:  StoredProcedure [PR].[GetSummaryContacts]    Script Date: 16/03/2017 11:25:10 ******/

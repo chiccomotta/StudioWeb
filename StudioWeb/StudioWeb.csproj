@@ -104,6 +104,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="SqlScripts\GetSummaryContacts.sql" />
+    <Content Include="SqlScripts\SP.sql" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
