@@ -107,7 +107,7 @@ BEGIN
 				AND CAST(SUBQ.CallDate AS DATE) = CAST(A.Date AS DATE)		
 		GROUP BY SubscriberName
 
-		ORDER BY SubscriberName
+		ORDER BY SubscriberName 
 END
 
 
