@@ -32,15 +32,12 @@ BEGIN
 		C.RelativePotential 	,
 		C.PersonalFidelity  	,
 		C.ContactTypeName		,
-		L.*						,
-		U.Name		AS UName	,
-		U.Surname	AS USurname
+		L.*						
 	INTO 
 		#temp_calls_table
 	FROM 
 		PR.Contacts AS C
 		INNER JOIN PR.Calls AS L 
-		LEFT JOIN Security.Users AS U ON L.SubscriberId  = U.Id
 	ON 
 		C.ContactId = L.RecipientId		
 	WHERE

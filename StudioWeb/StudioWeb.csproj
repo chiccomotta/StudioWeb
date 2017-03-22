@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="SqlScripts\GetAverageCallsData.sql" />
     <Content Include="SqlScripts\GetSummaryContacts.sql" />
     <Content Include="SqlScripts\GetSummaryReportData.sql" />
     <Content Include="SqlScripts\SP.sql" />
