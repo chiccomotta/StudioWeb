@@ -1,4 +1,6 @@
-﻿SELECT top 10 name, 
+﻿
+
+SELECT top 10 name, 
 	CASE SUBSTRING(Name, 1, 1) 
 		WHEN 'A'      
 		THEN 'name inizia per A'
