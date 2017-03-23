@@ -100,11 +100,12 @@ BEGIN
 
 		SELECT 'INFORMATION_DAYS' AS Typology, SubscriberName, SUM(A.MorningScientificCall + A.AfternoonScientificCall) AS Quantity
 	    FROM
-			(select SubscriberId, SubscriberName, CallDate from  #temp_filtered_calls group by SubscriberId, SubscriberName, CallDate) AS SUBQ	
+			--(select SubscriberId, SubscriberName, CallDate from  #temp_filtered_calls group by SubscriberId, SubscriberName, CallDate) AS SUBQ	
+			#temp_filtered_calls AS T
 		INNER JOIN PR.PayrollActivities AS A 
 			ON 
-				SUBQ.SubscriberId = A.UserId 
-				AND CAST(SUBQ.CallDate AS DATE) = CAST(A.Date AS DATE)		
+				T.SubscriberId = A.UserId 
+				AND CAST(T.CallDate AS DATE) = CAST(A.Date AS DATE)		
 		GROUP BY SubscriberName
 
 		ORDER BY SubscriberName 

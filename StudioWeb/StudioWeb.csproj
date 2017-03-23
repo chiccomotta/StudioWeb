@@ -122,9 +122,6 @@
     <Compile Include="Logic\IRepository.cs" />
     <Compile Include="Logic\ProgettiRepository.cs" />
     <Compile Include="Logic\UsersRepository.cs" />
-    <Compile Include="Models\CallsReportFilter.cs" />
-    <Compile Include="Models\Progetto.cs" />
-    <Compile Include="Models\Modelli.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudioWebContext.cs" />
