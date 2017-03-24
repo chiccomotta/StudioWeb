@@ -105,6 +105,7 @@
     <Content Include="Global.asax" />
     <Content Include="SqlScripts\CASE_Statement.sql" />
     <Content Include="SqlScripts\GetAverageCallsData.sql" />
+    <Content Include="SqlScripts\GetCustomersReportData.sql" />
     <Content Include="SqlScripts\GetSummaryContacts.sql" />
     <Content Include="SqlScripts\GetSummaryReportData.sql" />
     <Content Include="SqlScripts\SP.sql" />
