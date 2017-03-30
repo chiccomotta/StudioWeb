@@ -104,6 +104,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="SqlScripts\CASE_Statement.sql" />
+    <Content Include="SqlScripts\CTE_Example_Table.sql" />
     <Content Include="SqlScripts\GetAverageCallsData.sql" />
     <Content Include="SqlScripts\GetCustomersDetailsData.sql" />
     <Content Include="SqlScripts\GetCustomersReportData.sql" />
