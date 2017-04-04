@@ -13,7 +13,6 @@ namespace StudioWeb.Models
         public string  StateProvinceRegion { get; set; }
         public string City { get; set; }
         public string PostalCode { get; set; }
-
         public DateTime? LastCallDate { get; set; }
         public string Competence { get; set; }
         public string RelativePotential { get; set; }
